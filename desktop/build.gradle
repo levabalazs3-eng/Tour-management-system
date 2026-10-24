@@ -1,0 +1,10 @@
+plugins {
+    id 'application'
+}
+dependencies {
+    implementation project(':backend')
+}
+application {
+    mainClass = 'com.tourmanagement.presentation.Main'
+}
+apply from: "${rootProject.projectDir}/lint.gradle"

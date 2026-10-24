@@ -1,0 +1,15 @@
+{
+  "activeProfile": "jdbc",
+  "profiles": {
+    "memory": {
+      "daoType": "MEMORY"
+    },
+    "jdbc": {
+      "daoType": "JDBC",
+      "url": "jdbc:postgresql://localhost:5432/IDDE_db",
+      "username": "postgres",
+      "password": "security522",
+      "poolSize": 10
+    }
+  }
+}

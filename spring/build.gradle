@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '4.0.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    //Adatbazis
+    runtimeOnly 'org.postgresql:postgresql:42.7.10'
+    implementation 'com.zaxxer:HikariCP:7.0.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    //egyebb
+    compileOnly 'org.projectlombok:lombok:1.18.42'
+    annotationProcessor 'org.projectlombok:lombok:1.18.42'
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+}
+springBoot {
+    mainClass = 'com.tourmanagement.ApplicationLauncher' // Pontos elérési út a főosztályodhoz
+}
+configurations.all {
+    exclude group: 'org.slf4j', module: 'slf4j-simple'
+}
+apply from: "${rootProject.projectDir}/lint.gradle"
